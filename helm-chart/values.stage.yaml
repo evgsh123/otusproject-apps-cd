@@ -75,7 +75,7 @@ emailService:
 frontend:
   images:
     name: boutique-frontend
-    tag: v11
+    tag: v12
   create: true
   name: frontend
   externalService: true
