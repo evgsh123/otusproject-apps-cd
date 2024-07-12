@@ -57,7 +57,7 @@ seccompProfile:
   type: RuntimeDefault
 
 adService:
-  create: true
+  create: false
   name: adservice
   resources:
     requests:
@@ -68,7 +68,7 @@ adService:
       memory: 300Mi
 
 cartService:
-  create: true
+  create: false
   name: cartservice
   resources:
     requests:
@@ -79,7 +79,7 @@ cartService:
       memory: 128Mi
 
 checkoutService:
-  create: true
+  create: false
   name: checkoutservice
   resources:
     requests:
@@ -90,7 +90,7 @@ checkoutService:
       memory: 128Mi
 
 currencyService:
-  create: true
+  create: false
   name: currencyservice
   resources:
     requests:
@@ -101,7 +101,7 @@ currencyService:
       memory: 128Mi
 
 emailService:
-  create: true
+  create: false
   name: emailservice
   resources:
     requests:
@@ -176,7 +176,7 @@ productCatalogService:
       memory: 128Mi
 
 recommendationService:
-  create: true
+  create: false
   name: recommendationservice
   resources:
     requests:
@@ -187,7 +187,7 @@ recommendationService:
       memory: 450Mi
 
 shippingService:
-  create: true
+  create: false
   name: shippingservice
   resources:
     requests:
