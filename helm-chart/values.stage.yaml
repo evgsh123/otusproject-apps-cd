@@ -114,7 +114,7 @@ emailService:
 frontend:
   images:
     name: boutique-frontend
-    tag: 0
+    tag: 22fffcc99b80842bc561665f1ea149446356f494
   create: true
   name: frontend
   externalService: true
