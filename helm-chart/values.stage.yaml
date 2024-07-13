@@ -78,17 +78,17 @@ frontend:
     tag: v12
   create: true
   name: frontend
-  externalService: true
+  externalService: false
   cymbalBranding: false
   platform: local
   singleSharedSession: false
   virtualService:
-    create: false
+    create: true
     hosts:
-      - '*'
+    - "stage.evgsh.space"
     gateway:
-      name: asm-ingressgateway
-      namespace: asm-ingress
+      name: istio
+      namespace: istio
       labelKey: asm
       labelValue: ingressgateway
   resources:
