@@ -92,7 +92,7 @@ frontend:
       cpu: 100m
       memory: 64Mi
     limits:
-      cpu: 200m
+      cpu: 150m
       memory: 128Mi
 loadGenerator:
   create: false
