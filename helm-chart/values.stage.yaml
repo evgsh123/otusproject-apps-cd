@@ -82,15 +82,11 @@ frontend:
   cymbalBranding: false
   platform: local
   singleSharedSession: false
-  virtualService:
+  ingress:
     create: true
-    hosts:
-    - "stage.evgsh.space"
-    gateway:
-      name: istio
-      namespace: istio
-      labelKey: asm
-      labelValue: ingressgateway
+    host: "stage.evgsh.space"
+  virtualService:
+    create: false
   resources:
     requests:
       cpu: 100m
