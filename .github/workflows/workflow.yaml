@@ -31,7 +31,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: "${{ secrets.REPO_NAME }}/boutique-${{ inputs.name }}:v${{github.run_number}}"
+          tags: "${{ secrets.REPO_NAME }}/boutique-${{ inputs.name }}:v${{ inputs.JOBID }}"
 
   deploy_stage:
     runs-on: ubuntu-latest
