@@ -54,7 +54,7 @@ checkoutService:
       memory: 128Mi
 currencyService:
   images:
-    name: boutique-currencyService
+    name: boutique-currencyservice
     tag: v1
   create: true
   name: currencyservice
