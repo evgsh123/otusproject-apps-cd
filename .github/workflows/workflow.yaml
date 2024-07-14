@@ -7,6 +7,14 @@ on:
       name:
         required: true
         type: string
+    secrets:
+      YC_SA_JSON_CREDENTIALS:
+        required: true
+      REPO_NAME:
+        required: true
+      MYGITHUB_TOKEN:
+        required: true
+
 jobs:
   buildandpush:
     runs-on: ubuntu-latest
