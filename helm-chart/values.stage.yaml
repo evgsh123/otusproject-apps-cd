@@ -33,8 +33,11 @@ adService:
       cpu: 300m
       memory: 300Mi
 cartService:
-  create: false
+  create: true
   name: cartservice
+  images:
+    name: boutique-cartservice
+    tag: v1
   resources:
     requests:
       cpu: 200m
