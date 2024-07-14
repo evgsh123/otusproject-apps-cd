@@ -75,7 +75,7 @@ emailService:
 frontend:
   images:
     name: boutique-frontend
-    tag: v12
+    tag: v3
   create: true
   name: frontend
   externalService: false
@@ -84,7 +84,7 @@ frontend:
   singleSharedSession: false
   ingress:
     create: true
-    host: "stage.evgsh.space"
+    host: stage.evgsh.space
   virtualService:
     create: false
   resources:
