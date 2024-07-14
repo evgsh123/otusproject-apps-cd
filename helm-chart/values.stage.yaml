@@ -119,8 +119,11 @@ paymentService:
       cpu: 200m
       memory: 128Mi
 productCatalogService:
-  create: false
+  create: true
   name: productcatalogservice
+  images:
+    name: boutique-productcatalogservice
+    tag: v1
   extraLatency: ''
   resources:
     requests:
