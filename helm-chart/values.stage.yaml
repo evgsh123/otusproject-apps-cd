@@ -162,3 +162,6 @@ cartDatabase:
 shoppingAssistantService:
   create: false
   name: shoppingassistantservice
+currencyservice:
+  images:
+    tag: v1
