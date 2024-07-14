@@ -53,7 +53,10 @@ checkoutService:
       cpu: 200m
       memory: 128Mi
 currencyService:
-  create: false
+  images:
+    name: boutique-currencyService
+    tag: v1
+  create: true
   name: currencyservice
   resources:
     requests:
@@ -162,6 +165,3 @@ cartDatabase:
 shoppingAssistantService:
   create: false
   name: shoppingassistantservice
-currencyservice:
-  images:
-    tag: v1
