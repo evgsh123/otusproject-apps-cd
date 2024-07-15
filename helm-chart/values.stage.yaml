@@ -107,7 +107,10 @@ frontend:
       cpu: 150m
       memory: 128Mi
 loadGenerator:
-  create: false
+  create: true
+  images:
+    name: boutique-loadgenerator
+    tag: v1
   name: loadgenerator
   checkFrontendInitContainer: true
   resources:
