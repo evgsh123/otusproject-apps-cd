@@ -171,3 +171,6 @@ cartDatabase:
 shoppingAssistantService:
   create: false
   name: shoppingassistantservice
+shippingservice:
+  images:
+    tag: v1
