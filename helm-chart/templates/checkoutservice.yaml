@@ -66,7 +66,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: {{ .Values.images.repository }}/{{ .Values.checkoutService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
+        image: {{ .Values.images.repository }}/{{ .Values.checkoutService.images.name }}:{{ .Values.checkoutService.images.tag | default .Chart.AppVersion }}
         ports:
         - containerPort: 5050
         readinessProbe:
