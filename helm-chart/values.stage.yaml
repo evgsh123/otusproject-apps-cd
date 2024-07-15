@@ -72,7 +72,10 @@ currencyService:
       cpu: 200m
       memory: 128Mi
 emailService:
-  create: false
+  images:
+    name: boutique-emailservice
+    tag: v2
+  create: true
   name: emailservice
   resources:
     requests:
@@ -142,7 +145,10 @@ productCatalogService:
       cpu: 200m
       memory: 128Mi
 recommendationService:
-  create: false
+  create: true
+  images:
+    name: boutique-recommendationservice
+    tag: v1
   name: recommendationservice
   resources:
     requests:
