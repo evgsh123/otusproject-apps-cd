@@ -10,6 +10,9 @@ on:
       JOBID:
         required: true
         type: string
+      context:
+        type: string
+        default: .
     secrets:
       YC_SA_JSON_CREDENTIALS:
         required: true
@@ -35,7 +38,7 @@ jobs:
       - uses: docker/build-push-action@v6
         name: Build & push Docker image
         with:
-          context: .
+          context: "${{ inputs.context }}"
           push: true
           tags: "${{ secrets.REPO_NAME }}/boutique-${{ steps.lowcase.outputs.lowercase }}:v${{ inputs.JOBID }}"
 
