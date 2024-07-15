@@ -46,7 +46,10 @@ cartService:
       cpu: 300m
       memory: 128Mi
 checkoutService:
-  create: false
+  create: true
+  images:
+    name: boutique-checkoutservice
+    tag: v1
   name: checkoutservice
   resources:
     requests:
