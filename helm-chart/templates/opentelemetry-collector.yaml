@@ -112,7 +112,8 @@ data:
           grpc:
     processors:
     exporters: 
-      otlp:  jaeger-collector.infra:14250
+      otlp:
+        endpoint: jaeger-collector.infra:14250
     service:
       pipelines:
         traces:
