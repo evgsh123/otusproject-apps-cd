@@ -74,7 +74,7 @@ spec:
         - '/bin/sh'
         - '-c'
         - |
-           sed "s/PROJECT_ID/$(curl -H 'Metadata-Flavor: Google' http://metadata.google.internal/computeMetadata/v1/project/project-id)/" /template/collector-gateway-config-template.yaml >> /conf/collector-gateway-config.yaml
+           cat /template/collector-gateway-config-template.yaml > /conf/collector-gateway-config.yaml
         volumeMounts:
         - name: collector-gateway-config-template
           mountPath: /template
