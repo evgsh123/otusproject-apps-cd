@@ -56,31 +56,6 @@ spec:
         seccompProfile:
           type: {{ .Values.seccompProfile.type }}
         {{- end }}
-      {{- if eq .Values.opentelemetryCollector.projectId "PROJECT_ID" }}
-      initContainers:
-      # Init container retrieves the current cloud project id from the metadata server
-      # and inserts it into the collector config template
-      # https://cloud.google.com/compute/docs/storing-retrieving-metadata
-      - name: otel-gateway-init
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - ALL
-          privileged: false
-          readOnlyRootFilesystem: true
-        image: busybox:latest@sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
-        command:
-        - '/bin/sh'
-        - '-c'
-        - |
-           cat /template/collector-gateway-config-template.yaml > /conf/collector-gateway-config.yaml
-        volumeMounts:
-        - name: collector-gateway-config-template
-          mountPath: /template
-        - name: collector-gateway-config
-          mountPath: /conf
-      {{- end }}
       containers:
       # This gateway container will receive traces and metrics from each microservice
       # and forward it to GCP
@@ -100,15 +75,12 @@ spec:
           mountPath: /conf
       volumes:
       # Simple ConfigMap volume with template file
-      - name: collector-gateway-config-template
+      - name: collector-gateway-config
         configMap:
           items:
-          - key: collector-gateway-config-template.yaml
-            path: collector-gateway-config-template.yaml
-          name: collector-gateway-config-template
-      # Create a volume to store the expanded template (with correct cloud project ID)
-      - name: collector-gateway-config
-        emptyDir: {}
+          - key: collector-gateway-config.yaml
+            path: collector-gateway-config.yaml
+          name: collector-gateway-config
 ---
 apiVersion: v1
 kind: Service
@@ -128,20 +100,19 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: collector-gateway-config-template
+  name:  collector-gateway-config
   namespace: {{ .Release.Namespace }}
 # Open Telemetry Collector config
 # https://opentelemetry.io/docs/collector/configuration/
 data:
-  collector-gateway-config-template.yaml: |
+  collector-gateway-config.yaml: |
     receivers:
       otlp:
         protocols: 
           grpc:
     processors:
     exporters: 
-      otlp:
-        jaeger-collector.infra:14250
+      otlp:  jaeger-collector.infra:14250
     service:
       pipelines:
         traces:
