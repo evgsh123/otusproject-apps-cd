@@ -12,9 +12,9 @@ sidecars:
 authorizationPolicies:
   create: false
 opentelemetryCollector:
-  create: false
+  create: true
   name: opentelemetrycollector
-  projectId: PROJECT_ID
+  projectId: otusproject
 googleCloudOperations:
   profiler: false
   tracing: false

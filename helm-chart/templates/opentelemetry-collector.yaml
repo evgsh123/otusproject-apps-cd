@@ -139,19 +139,19 @@ data:
         protocols: 
           grpc:
     processors:
-    exporters:
-      googlecloud:
-        project: {{ .Values.opentelemetryCollector.projectId | quote }}
+    exporters: 
+      otlp:
+        jaeger-collector.infra:14250
     service:
       pipelines:
         traces:
           receivers: [otlp] # Receive otlp-formatted data from other collector instances
           processors: []
-          exporters: [googlecloud] # Export traces directly to Google Cloud
+          exporters: [otlp] # Export traces directly to Google Cloud
         metrics:
           receivers: [otlp]
           processors: []
-          exporters: [googlecloud] # Export metrics to Google Cloud
+          exporters: [otlp] # Export metrics to Google Cloud
 {{- if .Values.networkPolicies.create }}
 ---
 apiVersion: networking.k8s.io/v1
