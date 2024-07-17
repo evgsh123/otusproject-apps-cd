@@ -1,5 +1,5 @@
 images:
-  repository: cr.yandex/crp9fpk3udl9cheuh4j0
+  repository: cr.yandex/crp3jobplbvsk8su8pgq
   tag: ''
 serviceAccounts:
   create: true
