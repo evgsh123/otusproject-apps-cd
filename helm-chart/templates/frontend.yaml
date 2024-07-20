@@ -110,14 +110,12 @@ spec:
             value: {{ .Values.frontend.platform | quote }}
           {{- if .Values.opentelemetryCollector.create }}
           - name: COLLECTOR_SERVICE_ADDR
-            value: "{{ .Values.opentelemetryCollector.name }}:4317"
+            value: "jaeger-collector.infra:4317"
           - name: OTEL_SERVICE_NAME
             value: "{{ .Values.frontend.name }}"
           {{- end }}
-          {{- if .Values.googleCloudOperations.tracing }}
           - name: ENABLE_TRACING
             value: "1"
-          {{- end }}
           {{- if .Values.googleCloudOperations.profiler }}
           - name: ENABLE_PROFILER
             value: "1"
