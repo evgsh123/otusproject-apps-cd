@@ -113,7 +113,7 @@ data:
     processors:
     exporters: 
       otlp:
-        endpoint: jaeger-collector.infra:4318
+        endpoint: jaeger-collector.infra:4317
     service:
       pipelines:
         traces:
