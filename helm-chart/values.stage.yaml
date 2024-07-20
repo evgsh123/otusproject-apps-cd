@@ -163,7 +163,7 @@ recommendationService:
 shippingService:
   images:
     name: boutique-shippingservice
-    tag: v2
+    tag: v5
   create: true
   name: shippingservice
   resources:
