@@ -37,7 +37,7 @@ cartService:
   name: cartservice
   images:
     name: boutique-cartservice
-    tag: v2
+    tag: v5
   resources:
     requests:
       cpu: 200m
