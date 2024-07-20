@@ -151,7 +151,7 @@ recommendationService:
   create: true
   images:
     name: boutique-recommendationservice
-    tag: v1
+    tag: v2
   name: recommendationservice
   resources:
     requests:
