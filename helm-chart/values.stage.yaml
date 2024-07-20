@@ -49,7 +49,7 @@ checkoutService:
   create: true
   images:
     name: boutique-checkoutservice
-    tag: v1
+    tag: v4
   name: checkoutservice
   resources:
     requests:
