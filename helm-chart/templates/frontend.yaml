@@ -113,9 +113,9 @@ spec:
             value: "{{ .Values.opentelemetryCollector.server  }}"
           - name: OTEL_SERVICE_NAME
             value: "{{ .Values.frontend.name }}"
-          {{- end }}
           - name: ENABLE_TRACING
             value: "1"
+          {{- end }}
           {{- if .Values.googleCloudOperations.profiler }}
           - name: ENABLE_PROFILER
             value: "1"
