@@ -12,9 +12,8 @@ sidecars:
 authorizationPolicies:
   create: false
 opentelemetryCollector:
+  server: jaeger-collector.infra:4317 
   create: true
-  name: opentelemetrycollector
-  projectId: otusproject
 googleCloudOperations:
   profiler: false
   tracing: false

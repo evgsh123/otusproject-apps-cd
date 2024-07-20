@@ -92,7 +92,7 @@ spec:
           value: "{{ .Values.cartService.name }}:7070"
         {{- if .Values.opentelemetryCollector.create }}
         - name: COLLECTOR_SERVICE_ADDR
-          value: "{{ .Values.opentelemetryCollector.name }}:4317"
+          value: "{{ .Values.opentelemetryCollector.server }}"
         - name: OTEL_SERVICE_NAME
           value: "{{ .Values.checkoutService.name }}"
         {{- end }}
