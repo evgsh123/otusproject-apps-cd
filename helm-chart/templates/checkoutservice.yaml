@@ -95,8 +95,6 @@ spec:
           value: "{{ .Values.opentelemetryCollector.server }}"
         - name: OTEL_SERVICE_NAME
           value: "{{ .Values.checkoutService.name }}"
-        {{- end }}
-        {{- if .Values.googleCloudOperations.tracing }}
         - name: ENABLE_TRACING
           value: "1"
         {{- end }}
