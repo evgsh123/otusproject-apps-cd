@@ -1,4 +1,4 @@
-name: Build and deploy service
+name: Deploy service on prod
 run-name: ${{ github.actor }}
 permissions: write-all
 on:
@@ -22,27 +22,7 @@ on:
         required: true
 
 jobs:
-  buildandpush:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        name: Check out code
-      - name: Login to Yandex Cloud Container Registry
-        uses: yc-actions/yc-cr-login@v2
-        with:
-           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
-      - uses: ASzc/change-string-case-action@v6
-        id: lowcase
-        with:
-          string: "${{ inputs.name }}"
-      - uses: docker/build-push-action@v6
-        name: Build & push Docker image
-        with:
-          context: "${{ inputs.context }}"
-          push: true
-          tags: "${{ secrets.REPO_NAME }}/boutique-${{ steps.lowcase.outputs.lowercase }}:v${{ inputs.JOBID }}"
-
-  deploy_stage:
+  deploy_prod:
     runs-on: ubuntu-latest
     needs: buildandpush
     steps:
@@ -53,12 +33,12 @@ jobs:
         name: Update Image Version in the related HelmChart values.yaml
         with:
           repository: 'evgsh123/otusproject-apps-cd'
-          valueFile: 'helm-chart/values.stage.yaml'
+          valueFile: 'helm-chart/values.prod.yaml'
           propertyPath: "${{ inputs.name }}.images.tag"
-          value: "v${{ github.run_number }}"
+          value: "r${{ github.run_number }}"
           branch: main
           createPR: false
           force: true
           commitUserName: bot
           token: ${{ secrets.MYGITHUB_TOKEN }}
-          message: 'Update Image Version ${{ github.event.repository.name }} to ${{  github.run_number  }} on stage'
+          message: 'Update Image Version ${{ github.event.repository.name }} to ${{ github.run_number }} on prod'

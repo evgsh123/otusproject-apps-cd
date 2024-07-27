@@ -1,0 +1,194 @@
+images:
+  repository: cr.yandex/crp3jobplbvsk8su8pgq
+  tag: ''
+serviceAccounts:
+  create: true
+  annotations: {}
+  annotationsOnlyForCartservice: false
+networkPolicies:
+  create: false
+sidecars:
+  create: false
+authorizationPolicies:
+  create: false
+opentelemetryCollector:
+  server: jaeger-collector.infra:4317 
+  create: true
+googleCloudOperations:
+  profiler: false
+  tracing: false
+  metrics: false
+seccompProfile:
+  enable: false
+  type: RuntimeDefault
+adService:
+  create: false
+  name: adservice
+  resources:
+    requests:
+      cpu: 200m
+      memory: 180Mi
+    limits:
+      cpu: 300m
+      memory: 300Mi
+cartService:
+  create: true
+  name: cartservice
+  images:
+    name: boutique-cartservice
+    tag: v1
+  resources:
+    requests:
+      cpu: 200m
+      memory: 64Mi
+    limits:
+      cpu: 300m
+      memory: 128Mi
+checkoutService:
+  create: true
+  images:
+    name: boutique-checkoutservice
+    tag: v1
+  name: checkoutservice
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+currencyService:
+  images:
+    name: boutique-currencyservice
+    tag: v1
+  create: true
+  name: currencyservice
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+emailService:
+  images:
+    name: boutique-emailservice
+    tag: v1
+  create: true
+  name: emailservice
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+frontend:
+  images:
+    name: boutique-frontend
+    tag: v1
+  replicas: 2  
+  create: true
+  name: frontend
+  externalService: false
+  cymbalBranding: false
+  platform: local
+  singleSharedSession: false
+  ingress:
+    create: true
+    host: shop.evgsh.space
+  virtualService:
+    create: false
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 150m
+      memory: 128Mi
+loadGenerator:
+  create: true
+  images:
+    name: boutique-loadgenerator
+    tag: v1
+  name: loadgenerator
+  checkFrontendInitContainer: true
+  resources:
+    requests:
+      cpu: 300m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+paymentService:
+  create: true
+  images:
+    name: boutique-paymentservice
+    tag: v1
+  name: paymentservice
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+productCatalogService:
+  create: true
+  name: productcatalogservice
+  images:
+    name: boutique-productcatalogservice
+    tag: v1
+  extraLatency: ''
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+recommendationService:
+  create: true
+  images:
+    name: boutique-recommendationservice
+    tag: v1
+  name: recommendationservice
+  resources:
+    requests:
+      cpu: 100m
+      memory: 220Mi
+    limits:
+      cpu: 200m
+      memory: 450Mi
+shippingService:
+  images:
+    name: boutique-shippingservice
+    tag: v1
+  create: true
+  name: shippingservice
+  resources:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 150m
+      memory: 128Mi
+cartDatabase:
+  type: redis
+  connectionString: redis-cart:6379
+  inClusterRedis:
+    create: true
+    name: redis-cart
+    publicRepository: true
+  externalRedisTlsOrigination:
+    enable: false
+    name: exernal-redis-tls-origination
+    endpointAddress: ''
+    endpointPort: ''
+    certificate: ''
+shoppingAssistantService:
+  create: false
+  name: shoppingassistantservice
+shippingservice:
+  images:
+    tag: v1

@@ -50,6 +50,7 @@ spec:
       {{- else }}
       serviceAccountName: default
       {{- end }}
+      replicas: {{ default "0" .Values.frontend.replicas }}
       securityContext:
         fsGroup: 1000
         runAsGroup: 1000
