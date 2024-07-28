@@ -150,7 +150,7 @@ recommendationService:
   create: true
   images:
     name: boutique-recommendationservice
-    tag: v4
+    tag: 61dd9159d6f95fe703c06c1ac88c0080dadd2f29
   name: recommendationservice
   resources:
     requests:
