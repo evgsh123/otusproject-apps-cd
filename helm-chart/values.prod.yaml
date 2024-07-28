@@ -60,7 +60,7 @@ checkoutService:
 currencyService:
   images:
     name: boutique-currencyservice
-    tag: v1
+    tag: 8aa4fcd9cec44475ba8cda874f81027cd294e02c
   create: true
   name: currencyservice
   resources:
