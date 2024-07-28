@@ -73,7 +73,7 @@ currencyService:
 emailService:
   images:
     name: boutique-emailservice
-    tag: v1
+    tag: 25c19fbdffccb7d30931bf57de20ab89d9f760a3
   create: true
   name: emailservice
   resources:
