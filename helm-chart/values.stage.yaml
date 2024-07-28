@@ -123,7 +123,7 @@ paymentService:
   create: true
   images:
     name: boutique-paymentservice
-    tag: v4
+    tag: 589cc7a4f073f263a73ded0b4d81657b8c83afa3
   name: paymentservice
   resources:
     requests:
