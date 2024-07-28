@@ -12,7 +12,7 @@ sidecars:
 authorizationPolicies:
   create: false
 opentelemetryCollector:
-  server: jaeger-collector.infra:4317 
+  server: jaeger-collector.infra:4317
   create: true
 googleCloudOperations:
   profiler: false
@@ -86,7 +86,7 @@ emailService:
 frontend:
   images:
     name: boutique-frontend
-    tag: v8
+    tag: b2f2a0afe910f9eb420e91164debdb96ccbf5e7d
   create: true
   name: frontend
   externalService: false
