@@ -162,7 +162,7 @@ recommendationService:
 shippingService:
   images:
     name: boutique-shippingservice
-    tag: v5
+    tag: 88ad30108ff8a00093c6ca51ca3aabcf3630e4ef
   create: true
   name: shippingservice
   resources:
