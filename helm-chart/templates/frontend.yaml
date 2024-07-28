@@ -288,7 +288,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: yc-clusterissuer
   name: frontend
-  namespace: apps-stage
+  namespace: {{ .Release.Namespace }}
 spec:
   ingressClassName: nginx
   rules:
