@@ -110,7 +110,7 @@ loadGenerator:
   create: true
   images:
     name: boutique-loadgenerator
-    tag: v1
+    tag: 8e9fb800dd06853623b08ae69dfd8408c5e295ed
   name: loadgenerator
   checkFrontendInitContainer: true
   resources:
