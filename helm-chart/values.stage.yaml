@@ -109,7 +109,7 @@ loadGenerator:
   create: true
   images:
     name: boutique-loadgenerator
-    tag: v4
+    tag: 8e9fb800dd06853623b08ae69dfd8408c5e295ed
   name: loadgenerator
   checkFrontendInitContainer: true
   resources:
@@ -123,7 +123,7 @@ paymentService:
   create: true
   images:
     name: boutique-paymentservice
-    tag: 589cc7a4f073f263a73ded0b4d81657b8c83afa3
+    tag: v4
   name: paymentservice
   resources:
     requests:
