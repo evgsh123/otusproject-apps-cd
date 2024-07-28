@@ -48,7 +48,7 @@ checkoutService:
   create: true
   images:
     name: boutique-checkoutservice
-    tag: v1
+    tag: 629b8e3b92c36acd9add4f4068b42f332ac75386
   name: checkoutservice
   resources:
     requests:
