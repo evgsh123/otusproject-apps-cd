@@ -137,7 +137,7 @@ productCatalogService:
   name: productcatalogservice
   images:
     name: boutique-productcatalogservice
-    tag: v4
+    tag: 306cf1f3d904740cbf239cdd7d2a1f28368f5e24
   extraLatency: ''
   resources:
     requests:
