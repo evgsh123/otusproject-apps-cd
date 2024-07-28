@@ -13,6 +13,9 @@ on:
       context:
         type: string
         default: .
+      GITHUBSHA:
+        required: true
+        type: string
     secrets:
       YC_SA_JSON_CREDENTIALS:
         required: true
@@ -35,10 +38,10 @@ jobs:
           repository: 'evgsh123/otusproject-apps-cd'
           valueFile: 'helm-chart/values.prod.yaml'
           propertyPath: "${{ inputs.name }}.images.tag"
-          value: "r${{ github.run_number }}"
+          value: "${{ inputs.GITHUBSHA }}"
           branch: main
           createPR: false
           force: true
           commitUserName: bot
           token: ${{ secrets.MYGITHUB_TOKEN }}
-          message: 'Update Image Version ${{ github.event.repository.name }} to ${{ github.run_number }} on prod'
+          message: 'Update Image Version ${{ github.event.repository.name }} to ${{ inputs.GITHUBSHA }} on prod'

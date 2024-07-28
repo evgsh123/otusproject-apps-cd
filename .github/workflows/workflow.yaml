@@ -10,6 +10,9 @@ on:
       JOBID:
         required: true
         type: string
+      GITHUBSHA:
+        required: true
+        type: string
       context:
         type: string
         default: .
@@ -40,7 +43,7 @@ jobs:
         with:
           context: "${{ inputs.context }}"
           push: true
-          tags: "${{ secrets.REPO_NAME }}/boutique-${{ steps.lowcase.outputs.lowercase }}:v${{ inputs.JOBID }}"
+          tags: "${{ secrets.REPO_NAME }}/boutique-${{ steps.lowcase.outputs.lowercase }}:${{ inputs.GITHUBSHA }}"
 
   deploy_stage:
     runs-on: ubuntu-latest
@@ -55,10 +58,10 @@ jobs:
           repository: 'evgsh123/otusproject-apps-cd'
           valueFile: 'helm-chart/values.stage.yaml'
           propertyPath: "${{ inputs.name }}.images.tag"
-          value: "v${{ github.run_number }}"
+          value: "${{ inputs.GITHUBSHA }}"
           branch: main
           createPR: false
           force: true
           commitUserName: bot
           token: ${{ secrets.MYGITHUB_TOKEN }}
-          message: 'Update Image Version ${{ github.event.repository.name }} to ${{  github.run_number  }} on stage'
+          message: 'Update Image Version ${{ github.event.repository.name }} to ${{ inputs.GITHUBSHA }}  on stage'
