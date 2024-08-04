@@ -86,7 +86,7 @@ emailService:
 frontend:
   images:
     name: boutique-frontend
-    tag: 3efb7df451394098402ed576c4d43cc9df999ea4
+    tag: d99073e3b72529402e23d21ccebe0aa33b66a841
   create: true
   name: frontend
   externalService: false
